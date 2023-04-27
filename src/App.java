@@ -28,6 +28,10 @@ public class App {
         double valortotalgaloes = precogalao * precogalao;
         //quantidade a pintar para mistura
         double metragemmistura = metragem * 1.1;
+        double quantidadelatasmistura = metragemmistura / (volumedalata * rendimentoemlitros );
+        double quantidadelatasmisturaarredondada = Math.ceil(metragemmistura / (volumedalata * rendimentoemlitros ));
+        double quantidadeaserconvertidaemgaloes = quantidadelatasmisturaarredondada - quantidadelatasmistura;
+        double quantidadelitrosaseremconvertidos =
         //calcular a melhor quantidade de latas e galões considerando quantidade de latas e galões cheios e 10% de folga, arredondando para cima
         //saidas
         //apresentar o resultado dos calculos
@@ -38,6 +42,12 @@ public class App {
         System.out.printf("A quantidade de galões é: %f e o valor total em galões é: %f", quantidadegalao , precogalao);
         System.out.println();
         System.out.printf("A metragem para mistura é: %f", metragemmistura);
+        System.out.println();
+        System.out.printf("A quantidade de latas para mistura é: %f", quantidadelatasmistura);
+        System.out.println();
+        System.out.printf("A quantidade de latas para mistura arredondada é: %f", quantidadelatasmisturaarredondada);
+        System.out.println();
+        System.out.printf("A quantidade a ser convertida em galões é: %f", quantidadeaserconvertidaemgaloes);
     }   
 
 }
