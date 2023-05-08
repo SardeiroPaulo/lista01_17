@@ -56,3 +56,6 @@ public class App {
         System.out.printf("A quantidade arredondade em galões é: %f", quantidadeGaloesArredondada);
         System.out.println();
         System.out.printf("A quantidade final em latas é: %f e em galões é %f", quantidadeEmLataFinal, quantidadeGaloesArredondada);
+    }
+    
+}
