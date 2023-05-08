@@ -25,21 +25,23 @@ public class App {
         double valortotallatas = quantidadelatas * precolata;
         //calcular quantos galões de 3,6 litros
         double quantidadegalao = metragem / (volumegalao * rendimentoemlitros);
-        double valortotalgaloes = precogalao * precogalao;
+        double valortotalgaloes = quantidadegalao * precogalao;
         //quantidade a pintar para mistura
         double metragemmistura = metragem * 1.1;
         double quantidadelatasmistura = metragemmistura / (volumedalata * rendimentoemlitros );
         double quantidadelatasmisturaarredondada = Math.ceil(metragemmistura / (volumedalata * rendimentoemlitros ));
-        double quantidadeaserconvertidaemgaloes = quantidadelatasmisturaarredondada - quantidadelatasmistura;
-        double quantidadelitrosaseremconvertidos =
+        double quantidadedesperdiciolata = quantidadelatasmisturaarredondada - quantidadelatasmistura;
+        double quantidaLitrosAConverterGaloes = (1 - quantidadedesperdiciolata) * volumedalata;
+        double quantidadeGaloesArredondada = Math.ceil(quantidaLitrosAConverterGaloes / volumegalao);
+        double quantidadeEmLataFinal = Math.floor(quantidadelatasmistura );
         //calcular a melhor quantidade de latas e galões considerando quantidade de latas e galões cheios e 10% de folga, arredondando para cima
         //saidas
         //apresentar o resultado dos calculos
         System.out.printf("A metragem a ser pintada é de %f metros quadrados", metragem);
         System.out.println("");
-        System.out.printf("a quantidade de lataas é: %f e o valor total em latas é: %f", quantidadelatas, valortotallatas);
+        System.out.printf("a quantidade de latas é: %f e o valor total em latas é: %f", quantidadelatas, valortotallatas);
         System.out.println("");
-        System.out.printf("A quantidade de galões é: %f e o valor total em galões é: %f", quantidadegalao , precogalao);
+        System.out.printf("A quantidade de galões é: %f e o valor total em galões é: %f", quantidadegalao , valortotalgaloes);
         System.out.println();
         System.out.printf("A metragem para mistura é: %f", metragemmistura);
         System.out.println();
@@ -47,7 +49,10 @@ public class App {
         System.out.println();
         System.out.printf("A quantidade de latas para mistura arredondada é: %f", quantidadelatasmisturaarredondada);
         System.out.println();
-        System.out.printf("A quantidade a ser convertida em galões é: %f", quantidadeaserconvertidaemgaloes);
-    }   
-
-}
+        System.out.printf("A quantidade de desperdicio na lata é: %f", quantidadedesperdiciolata);
+        System.out.println();
+        System.out.printf("A quantidade em litros a ser utilizada em galões é: %f", quantidaLitrosAConverterGaloes);
+        System.out.println();
+        System.out.printf("A quantidade arredondade em galões é: %f", quantidadeGaloesArredondada);
+        System.out.println();
+        System.out.printf("A quantidade final em latas é: %f e em galões é %f", quantidadeEmLataFinal, quantidadeGaloesArredondada);
